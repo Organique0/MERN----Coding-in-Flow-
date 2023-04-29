@@ -6,8 +6,6 @@ var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-var bodyParser = require("body-parser");
-const pug = require("pug");
 
 var app = express();
 
@@ -38,19 +36,6 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render("error");
-});
-
-// Parse incoming request bodies in a middleware before your handlers, available under the req.body property
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-// Define your routes here
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-// Start the server
-app.listen(4000, () => {
-  console.log("Server listening on port 4000");
 });
 
 module.exports = app;
