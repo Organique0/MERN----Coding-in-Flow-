@@ -54,6 +54,8 @@ export interface LoginCredentials {
 export async function login(credentials: LoginCredentials): Promise<User> {
   const response = await fetchData("/api/users/login", {
     method: "POST",
+    mode: "cors",
+    credentials: "include",
     headers: {
       "Content-Type": "application/json"
     },
