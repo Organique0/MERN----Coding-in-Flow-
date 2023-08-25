@@ -3,7 +3,7 @@ import { Note } from "../models/note";
 import { User } from "../models/user";
 
 async function fetchData(input: RequestInfo, init?: RequestInit) {
-  const response = await fetch(input, init);
+  const response = await fetch("https://mern-notes-clppf8ug0-organique0.vercel.app" + input, init);
   if (response.ok) {
     return response;
   } else {
@@ -16,9 +16,9 @@ async function fetchData(input: RequestInfo, init?: RequestInit) {
     } else {
       throw Error(
         "Request failed with status code " +
-          response.status +
-          "message: " +
-          errorMessage
+        response.status +
+        "message: " +
+        errorMessage
       );
     }
   }
