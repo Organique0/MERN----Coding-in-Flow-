@@ -3,7 +3,7 @@ import { Note } from "../models/note";
 import { User } from "../models/user";
 
 async function fetchData(input: RequestInfo, init?: RequestInit) {
-  const response = await fetch(input, init); //for localhost remove this input url and add a proxy back
+  const response = await fetch("https://cool-notes-app-d547271d81da.herokuapp.com" + input, init); //for localhost change this input url and add a proxy back
   if (response.ok) {
     return response;
   } else {
@@ -52,12 +52,12 @@ export interface LoginCredentials {
 }
 
 export async function login(credentials: LoginCredentials): Promise<User> {
-  const response = await fetchData("https://cool-notes-app-d547271d81da.herokuapp.com/api/users/login", {
+  const response = await fetchData("/api/users/login", {
     method: "POST",
     mode: "cors",
     credentials: "include",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(credentials)
   });
