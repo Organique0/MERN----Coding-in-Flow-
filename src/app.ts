@@ -32,11 +32,11 @@ app.use(
     saveUninitialized: false,
     cookie: {
       secure: true,
-      httpOnly: true,
       sameSite: 'none',
       maxAge: 60 * 60 * 1000
     },
     rolling: true,
+    proxy: true,
     store: MongoStore.create({ mongoUrl: env.MONGO_CONNECTION_STRING })
   })
 );
