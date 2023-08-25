@@ -101,6 +101,7 @@ export const login: RequestHandler<
     }
 
     req.session.userId = user._id;
+    res.setHeader("Access-Control-Allow-Origin", "https://mern-notes-app-rouge.vercel.app");
     res.status(201).json(user);
   } catch (error) {
     next(error);
