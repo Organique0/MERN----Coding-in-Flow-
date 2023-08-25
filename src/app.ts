@@ -8,18 +8,19 @@ import session from "express-session";
 import env from "./util/validateEnv";
 import MongoStore from "connect-mongo";
 import { requiresAuth } from "./middleware/auth";
-import cors from "cors";
+import cors, { CorsOptions } from "cors";
 
 const app = express();
 
 app.use(morgan("dev"));
 
 app.use(express.json());
-const corsOptions = {
+const corsOptions: CorsOptions = {
   origin: 'https://mern-notes-app-rouge.vercel.app',
   methods: ['POST', 'GET', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials:true,
+  credentials: true,
+
 }
 app.use(cors(corsOptions));
 app.use(
