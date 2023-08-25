@@ -1,2 +1,1 @@
-Complete MERN Beginner Course [2023]
-Watch the course here: https://www.youtube.com/watch?v=FcxjCPeicvU
+This a a branch that is made to be hosted on Heroku
