@@ -38,6 +38,8 @@ export interface SignUpCredentials {
 export async function signUp(credentials: SignUpCredentials): Promise<User> {
   const response = await fetchData("/api/users/signup", {
     method: "POST",
+    mode: "cors",
+    credentials: "include",
     headers: {
       "Content-Type": "application/json"
     },
@@ -70,7 +72,9 @@ export async function logout() {
 
 export async function fetchNotes(): Promise<Note[]> {
   const response = await fetchData("/api/notes", {
-    method: "GET"
+    method: "GET",
+    mode: "cors",
+    credentials: "include"
   });
   return await response.json();
 }
@@ -86,6 +90,8 @@ export async function createNote(note: NoteInput): Promise<Note> {
     headers: {
       "Content-Type": "application/json"
     },
+    mode: "cors",
+    credentials: "include",
     body: JSON.stringify(note)
   });
   return response.json();
@@ -100,6 +106,8 @@ export async function updateNote(
     headers: {
       "Content-Type": "application/json"
     },
+    mode: "cors",
+    credentials: "include",
     body: JSON.stringify(note)
   });
 
@@ -107,5 +115,9 @@ export async function updateNote(
 }
 
 export async function deleteNote(noteId: string) {
-  await fetchData("api/notes/" + noteId, { method: "DELETE" });
+  await fetchData("api/notes/" + noteId, {
+    method: "DELETE",
+    mode: "cors",
+    credentials: "include",
+  });
 }
