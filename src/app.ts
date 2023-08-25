@@ -15,14 +15,24 @@ const app = express();
 app.use(morgan("dev"));
 
 app.use(express.json());
-const corsOptions: CorsOptions = {
+
+const allowCrossDomain = (req: Request, res: Response, next: NextFunction) => {
+  res.header(`Access-Control-Allow-Origin`, `https://mern-notes-app-rouge.vercel.app`);
+  res.header(`Access-Control-Allow-Methods`, `GET,PUT,POST,DELETE`);
+  res.header(`Access-Control-Allow-Headers`, `Content-Type`);
+  next();
+};
+
+
+/* const corsOptions: CorsOptions = {
   origin: 'https://mern-notes-app-rouge.vercel.app',
   methods: ['POST', 'GET', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 
 }
-app.use(cors(corsOptions));
+app.use(cors(corsOptions)); */
+app.use(allowCrossDomain);
 app.use(
   session({
     secret: env.SESSION_SECRET,
