@@ -52,7 +52,7 @@ export interface LoginCredentials {
 }
 
 export async function login(credentials: LoginCredentials): Promise<User> {
-  const response = await fetchData("/api/users/login", {
+  const response = await fetchData("https://cool-notes-app-d547271d81da.herokuapp.com/api/users/login", {
     method: "POST",
     mode: "cors",
     credentials: "include",
