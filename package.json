@@ -4,7 +4,7 @@
   "description": "",
   "main": "lib/server.js",
   "scripts": {
-    "start": "node lib/server.js",
+    "start": "node dist/server.js",
     "lint": "eslint . --ext .ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "echo 'Build complete'",
@@ -17,6 +17,8 @@
     "@babel/cli": "^7.22.10",
     "@babel/core": "^7.22.11",
     "@babel/preset-env": "^7.22.10",
+    "@babel/preset-react": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.11",
     "@types/bcrypt": "^5.0.0",
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
