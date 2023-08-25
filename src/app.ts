@@ -18,6 +18,8 @@ app.use(express.json());
 app.use(cors({
   origin: "https://mern-notes-app-rouge.vercel.app",
   credentials: true,
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  allowedHeaders: "Content-Type,Authorization",
 }));
 app.use(
   session({
