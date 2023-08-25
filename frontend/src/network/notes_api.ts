@@ -3,7 +3,7 @@ import { Note } from "../models/note";
 import { User } from "../models/user";
 
 async function fetchData(input: RequestInfo, init?: RequestInit) {
-  const response = await fetch("https://mern-notes-clppf8ug0-organique0.vercel.app" + input, init);
+  const response = await fetch("https://cool-notes-app-d547271d81da.herokuapp.com" + input, init); //for localhost remove this url and add a proxy back
   if (response.ok) {
     return response;
   } else {
