@@ -8,13 +8,17 @@ import session from "express-session";
 import env from "./util/validateEnv";
 import MongoStore from "connect-mongo";
 import { requiresAuth } from "./middleware/auth";
+import cors from "cors";
 
 const app = express();
 
 app.use(morgan("dev"));
 
 app.use(express.json());
-
+app.use(cors({
+  origin: "https://mern-notes-app-rouge.vercel.app",
+  credentials: true,
+}));
 app.use(
   session({
     secret: env.SESSION_SECRET,
