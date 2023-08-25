@@ -3,7 +3,7 @@ import { Note } from "../models/note";
 import { User } from "../models/user";
 
 async function fetchData(input: RequestInfo, init?: RequestInit) {
-  const response = await fetch(input, init); //for localhost remove this url and add a proxy back
+  const response = await fetch(input, init); //for localhost remove this input url and add a proxy back
   if (response.ok) {
     return response;
   } else {
