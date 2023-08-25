@@ -18,7 +18,8 @@ app.use(express.json());
 const corsOptions = {
   origin: 'https://mern-notes-app-rouge.vercel.app',
   methods: ['POST', 'GET', 'PATCH', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials:true,
 }
 app.use(cors(corsOptions));
 app.use(
