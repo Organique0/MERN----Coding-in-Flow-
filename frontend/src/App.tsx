@@ -74,7 +74,7 @@ function App() {
             }}
             onLoginSuccessful={(user) => {
               setLoggedInUser(user);
-              setShowSignUpModal(false);
+              setShowLoginModal(false);
             }}
           />
         )}
